@@ -1,20 +1,2 @@
-# react-tamplate
-This is a react tamplate that is much easier to use created with vite
-it contains
-- tailwindcss
-- daisyui
-- react-router-dom
-- react-toastify
-# Run it with typing react
-Replace Replace-me with the file path u just downloaded and don't ever delete it
-# macOS
-- download the react.command file
-- chmod +x replace-me/react.command
-- nano ~/.bash_profile
-- Add to it: alias react='Replace-me/react.command'
-- source ~/.bash_profile
-# Linux 
-- same as macOS just replace react.command with react.sh
-i will try to keep this updated to the latest version
-# esos
-# esos
+# Let's save lives from the impact of earthquakes.
+We will send you a notification when an earthquake happens, depending on the seismic focus you might get around 30 seconds to runaway
