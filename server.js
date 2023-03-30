@@ -45,12 +45,61 @@ const starta = ()=>{
             z:0,
             earth:false,
           });
-        async function update_telemetry() {
+          const send =(topic,title,msg,)=>{
+            const message = {
+              notification: {
+                title: title,
+                body: msg,
+              },
+              topic: topic,
+              webpush: {
+                headers: {
+                  Urgency: "high",
+                  ttl:"0"
+                },
+                data : {
+                  volume: "3.21.15",
+                  content: "http://www.news-magazine.com/world-week/21659772"
+                },
+                notification: {
+                  title: title,
+                  body: msg,
+                  vibrate: [200, 100, 200],
 
+                },
+
+            },
+
+          }
+            
+            // Send the message to the devices subscribed to the topic
+            admin.messaging().send(message)
+              .then((response) => {
+                console.log("Successfully sent message:", response);
+              })
+              .catch((error) => {
+                console.error("Error sending message:", error);
+              });
+
+          }
+          const detectandsend = (shake,data,store)=>{
+            if(shake >= 600 && shake <= 800){
+// low noti acc 50%
+send('esos',`EARTHQUAKE (low)`,`level: ${shake} acc:50%`)
+            }else if(shake >= 801 && shake <= 1500){
+              // med earthquake acc 70%
+              send('esos',`EARTHQUAKE (med)`,`level: ${shake} acc:70%`)
+            }else if(shake >= 1501 && shake <= 3000){
+              // med earthquake acc 90%
+              send('esos',`EARTHQUAKE (med)`,`level: ${shake} acc:90%`)
+            }else if(shake >= 3001){
+              // high earthquake acc 100%
+              send('esos',`EARTHQUAKE (HIGH)`,`level: ${shake} acc:100%`)
+            }
+          }
+        async function update_telemetry() {
             var gyro_xyz = gyro.get_gyro_xyz();
             var accel_xyz = gyro.get_accel_xyz();
-        
-            // Calculate the change in acceleration since the last reading
             var accel_change = {
                 x: Math.abs(accel_xyz.x - accel_last.x),
                 y: Math.abs(accel_xyz.y - accel_last.y),
@@ -62,6 +111,7 @@ const starta = ()=>{
             // var is_shaking = accel_change.x > shake_threshold ||
             //     accel_change.y > shake_threshold ||
             //     accel_change.z > shake_threshold;
+            console.log(accel_change);
         if(accel_change.y > 530){
             if(start == 0){
                 console.log('detection activated')
@@ -70,7 +120,8 @@ const starta = ()=>{
             }else{
 
                 console.log(`Shake detected! ${getCurrentDateTime()}`);
-                console.log(accel_change);
+                // console.log(accel_change);
+                // detectandsend(accel_change.y)
   // admin.messaging().setLogLevel('debug');
 
                 usersRef.update({
@@ -79,62 +130,19 @@ const starta = ()=>{
                     z:accel_change.z,
                     earth:true,
                   });
-                  const message = {
-                    notification: {
-                      title: "Run away (URGENT)",
-                      body: `There's an earthquake with x:${accel_change.x} y:${accel_change.y}`,
-                    },
-                    topic: "esos",
-                    webpush: {
-                      headers: {
-                        Urgency: "high",
-                        ttl:"0"
-                      },
-                      data : {
-                        volume: "3.21.15",
-                        content: "http://www.news-magazine.com/world-week/21659772"
-                      },
-                      notification: {
-                        title: "Low ",
-                        body: `There's an earthquake with x:${accel_change.x} y:${accel_change.y}`,
-                        vibrate: [200, 100, 200],
-
-                      },
-
-                  },
-
-                }
-                  
-                  // Send the message to the devices subscribed to the topic
-                  admin.messaging().send(message)
-                    .then((response) => {
-                      console.log("Successfully sent message:", response);
-                    })
-                    .catch((error) => {
-                      console.error("Error sending message:", error);
-                    });
-
             }
         
         }
-            // if (is_shaking) {
-            //     console.log("Shake detected!");
-            // }
-        
             accel_last = accel_xyz;
-        
             setTimeout(update_telemetry, 500);
         }
-        
         if (gyro) {
             update_telemetry();
         }
-        
     }).catch(function(){
         console.log("No internet trying again in 5 seconds");
         setTimeout(starta, 5000);
     });
 }
-
 starta()
 
