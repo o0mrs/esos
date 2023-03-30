@@ -19,5 +19,17 @@ check [firebase docs](https://firebase.google.com/docs/web/setup#add-sdk-and-ini
 6. you'll find a file named dist in [sos-sub/dist](sos-sub/dist) deploy that to your server 
 if you dont have a server you could use [cloudflare pages](https://pages.cloudflare.com/)
 ### II. pi deployment
+1. MPU6050 setup
+- connect the VCC to 3.3v or 5v
+- connect the GND to any of the gnd ports
+- connect the SDA to GPIO2
+- connect the SCL to GPIO3
+2. install nodejs 
+3. install pm2
+4. run the [server.js](server.js) file using pm2
+`pm2 start server.js` 
+don't forget to make it run on startup check [ppm2 docs](https://pm2.keymetrics.io/docs/usage/startup/) for more info
+#NOTE
+this project is still under development as more steeps to deploy the server will be listed soon
 
 
