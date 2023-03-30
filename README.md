@@ -1,6 +1,14 @@
 # Let's save lives from the impact of earthquakes.
 
 Earthquakes can be extremely devastating, and saving lives during this natural disaster is a top priority. This project aims to provide timely notifications to individuals so that they can prepare and protect themselves during an earthquake.
+## Science
+
+When an earthquake occurs, it produces seismic waves that travel through the Earth's crust. The speed of seismic waves varies depending on the type of rock they travel through. On average, seismic waves travel at a speed of 5 km/s in the Earth's crust.
+
+If an earthquake happens at an epicenter, it would take around 30 seconds for the seismic waves to arrive at a nearby city. For example, if an earthquake happens in San Francisco, it would take approximately 30 seconds for the seismic waves to reach downtown San Francisco.
+
+However, if another city is located farther away from the epicenter, it would take longer for the seismic waves to arrive. For instance, if an earthquake happens in San Francisco, it would take approximately 50 seconds for the seismic waves to reach Los Angeles.
+
 
 ## Required Hardware and Accounts
 
