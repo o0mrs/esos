@@ -10,7 +10,7 @@ To implement this project, you will need the following hardware and accounts:
 - MPU6050 sensor
 - Firebase account 
 - Something to hold the sensor with a wood should be fine
-
+- 24/7 internet connection
 ## Deployment Steps
 
 The deployment steps for this project are divided into 3 parts: website deployment , Pi deployment and server deployment.
