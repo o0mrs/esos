@@ -13,7 +13,7 @@ To implement this project, you will need the following hardware and accounts:
 
 ## Deployment Steps
 
-The deployment steps for this project are divided into two parts: website deployment and Pi deployment.
+The deployment steps for this project are divided into 3 parts: website deployment , Pi deployment and server deployment.
 
 ### I. Website Deployment
 
