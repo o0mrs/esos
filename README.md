@@ -1,35 +1,41 @@
 # Let's save lives from the impact of earthquakes.
-We will send you a notification when an earthquake happens, depending on the seismic focus you might get around 30 seconds to runaway
-## required hardware and accounts
-- raspberrypi (any version should be fine)
+
+Earthquakes can be extremely devastating, and saving lives during this natural disaster is a top priority. This project aims to provide timely notifications to individuals so that they can prepare and protect themselves during an earthquake.
+
+## Required Hardware and Accounts
+
+To implement this project, you will need the following hardware and accounts:
+
+- Raspberry Pi (any version should be fine)
 - MPU6050 sensor
-- firebase account 
-- something to hold the sensor with a wood should be fine
-## deployment steps
-### I. website deployment
-1. clone the repo
-2. install nodejs
-to check if it's installed already type `node -v` it should return the version you're using
-if you dont have it installed you can easly install it from
-https://nodejs.dev/en/
-3. get your firebase creds
-check [firebase docs](https://firebase.google.com/docs/web/setup#add-sdk-and-initialize) for more info
-4. replace your creds in [sos-sub/com/firebase.js](sos-sub/com/firebase.js) and [sos-sub/public/firebase-messaging-sw.js](sos-sub/public/firebase-messaging-sw.js) there's comment to help you
-5. build the app using `npm run build` in nodejs or `bun run build` in bunjs
-6. you'll find a file named dist in [sos-sub/dist](sos-sub/dist) deploy that to your server 
-if you dont have a server you could use [cloudflare pages](https://pages.cloudflare.com/)
-### II. pi deployment
-1. MPU6050 setup
-- connect the VCC to 3.3v or 5v
-- connect the GND to any of the gnd ports
-- connect the SDA to GPIO2
-- connect the SCL to GPIO3
-2. install nodejs 
-3. install pm2
-4. run the [server.js](server.js) file using pm2
-`pm2 start server.js` 
-don't forget to make it run on startup check [pm2 docs](https://pm2.keymetrics.io/docs/usage/startup/) for more info
-# NOTE
-this project is still under development as more steeps to deploy the server will be listed soon
+- Firebase account 
+- Something to hold the sensor with a wood should be fine
 
+## Deployment Steps
 
+The deployment steps for this project are divided into two parts: website deployment and Pi deployment.
+
+### I. Website Deployment
+
+1. Clone the repository
+2. Install Node.js. To check if it's installed already, type `node -v`. If it returns the version you're using, Node.js is already installed. If not, you can easily install it from https://nodejs.dev/en/.
+3. Get your Firebase credentials. Check [Firebase Docs](https://firebase.google.com/docs/web/setup#add-sdk-and-initialize) for more information.
+4. Replace your credentials in [sos-sub/com/firebase.js](sos-sub/com/firebase.js) and [sos-sub/public/firebase-messaging-sw.js](sos-sub/public/firebase-messaging-sw.js). There are comments to help you.
+5. Build the app using `npm run build` in Node.js or `bun run build` in BunJS.
+6. You'll find a file named `dist` in [sos-sub/dist](sos-sub/dist). Deploy that to your server. If you don't have a server, you could use [Cloudflare Pages](https://pages.cloudflare.com/).
+
+### II. Pi Deployment
+
+1. MPU6050 setup:
+- Connect the VCC to 3.3v or 5v
+- Connect the GND to any of the GND ports
+- Connect the SDA to GPIO2
+- Connect the SCL to GPIO3
+
+2. Install Node.js.
+3. Install PM2.
+4. Run the [server.js](server.js) file using PM2 with the command `pm2 start server.js`. Don't forget to make it run on startup. Check [PM2 Docs](https://pm2.keymetrics.io/docs/usage/startup/) for more information.
+
+# Note
+
+This project is still under development, and more deployment steps for the server will be listed soon. Stay tuned for updates!
