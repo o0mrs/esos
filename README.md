@@ -28,8 +28,8 @@ if you dont have a server you could use [cloudflare pages](https://pages.cloudfl
 3. install pm2
 4. run the [server.js](server.js) file using pm2
 `pm2 start server.js` 
-don't forget to make it run on startup check [ppm2 docs](https://pm2.keymetrics.io/docs/usage/startup/) for more info
-#NOTE
+don't forget to make it run on startup check [pm2 docs](https://pm2.keymetrics.io/docs/usage/startup/) for more info
+# NOTE
 this project is still under development as more steeps to deploy the server will be listed soon
 
 
