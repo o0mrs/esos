@@ -1,11 +1,13 @@
 # Let's save lives from the impact of earthquakes.
 We will send you a notification when an earthquake happens, depending on the seismic focus you might get around 30 seconds to runaway
-# for developers
 ## required hardware and accounts
+<sub>
 - raspberrypi (any version should be fine)
 - MPU6050 sensor
 - firebase account 
 - something to hold the sensor with a wood should be fine
+</sub>
+
 ## deployment steps
 ### website deployment
 1. clone the repo
