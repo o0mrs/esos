@@ -9,6 +9,8 @@ If an earthquake happens at an epicenter, it would take around 30 seconds for th
 
 However, if another city is located farther away from the epicenter, it would take longer for the seismic waves to arrive. For instance, if an earthquake happens in San Francisco, it would take approximately 50 seconds for the seismic waves to reach Los Angeles.
 
+so what are we going to do with this information?
+we will setup a pi that will detect an earthquake and send a notefecation to ppl in the country to get out of their homes
 
 ## Required Hardware and Accounts
 
