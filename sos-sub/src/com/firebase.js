@@ -28,7 +28,7 @@ export const requestForToken = async () => {
       if (currentToken) {
         // alert(currentToken);
         // console.log(currentToken);
-      await  fetch('http://localhost:3000/adduser', {
+      await  fetch('https://sosapi.mindix.xyz/adduser', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
