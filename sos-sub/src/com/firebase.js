@@ -18,12 +18,37 @@ export const app = initializeApp(firebaseConfig);
 export const messaging = getMessaging(app);
 export const db = getDatabase(app);
 
-export const requestForToken = () => {
-  return getToken(messaging, { vapidKey: "BFis-cQVENFyIavJl96JRuQk3zWceC0YvjQOJYYHYQmfEda4WqnZeLNmkxepB5jTVm4sVx_JSrlBR1vYvUcPhPg" })
-    .then((currentToken) => {
+export const requestForToken = async () => {
+  if(localStorage.getItem('token')){
+    alert(`It's already enabled`);
+    window.location.replace("https://esos.pages.dev/done");
+  }else{
+   getToken(messaging, { vapidKey: "BFis-cQVENFyIavJl96JRuQk3zWceC0YvjQOJYYHYQmfEda4WqnZeLNmkxepB5jTVm4sVx_JSrlBR1vYvUcPhPg" })
+    .then(async (currentToken) => {
       if (currentToken) {
-        alert(currentToken);
-        console.log(currentToken);
+        // alert(currentToken);
+        // console.log(currentToken);
+      await  fetch('http://localhost:3000/adduser', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    user: currentToken
+  })
+})
+.then(response => response.json())
+.then(data =>  {
+  console.log(data)
+  localStorage.setItem('token', currentToken);
+  window.location.replace("https://esos.pages.dev/done");
+
+})
+.catch(error => console.error(error));
+        
+
+
+        
         // return(currentToken)
         // Perform any other neccessary action with the token
       } else {
@@ -38,5 +63,7 @@ export const requestForToken = () => {
         console.log('An error occurred while retrieving token. '+ err);
     //   return('no')
     });
+  }
+ 
 };
 

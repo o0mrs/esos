@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "coffee-script": "^1.12.7",
+    "firebase-admin": "^11.5.0",
+    "i2c": "^0.2.5",
+    "i2c-bus": "^5.2.2",
+    "i2c-mpu6050": "^2.3.0",
+    "internet-available": "^1.0.0",
+    "is-online": "^10.0.0",
+    "mpu6050": "^0.1.4",
+    "mpu6050-gyro": "^1.1.1"
+  }
+}

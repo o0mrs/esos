@@ -8,6 +8,8 @@ import './css/App.css'
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import ProgressiveImage from "react-progressive-image-loading";
+import ReactLoading from 'react-loading';
+
 import {requestForToken} from "./firebase.js"
 import NavBar from './parts/navbar';
 import Foot from './parts/footbar';
@@ -61,7 +63,11 @@ if(tab == 0){
     We will send you a notification when an earthquake happens, depending on the seismic focus you might get around 30 seconds to runaway
   </div>
     <div>
-    <div onClick={()=>{requestForToken()}}  className='h-14 cursor-pointer text-white max-w-[90%] mt-14 text-center text-xl pt-3.5 rounded-3xl bg-[#527e80]'>
+    <div onClick={()=>{
+      settab(2)
+      const a = requestForToken()
+      console.log(a)
+      }}  className='h-14 cursor-pointer text-white max-w-[90%] mt-14 text-center text-xl pt-3.5 rounded-3xl bg-[#527e80]'>
     Enable
   </div>
     </div>
@@ -110,7 +116,11 @@ if(tab == 0){
   <div className='bottom-0 fixed text-center w-screen px-4 pb-14'>
     {/* button */}
 
-<div onClick={()=>{requestForToken()}} className='h-14 mt-14 text-center text-xl pt-3.5 rounded-3xl bg-[#527e80]'>
+<div onClick={async()=>{
+      settab(2)
+requestForToken()
+
+      }} className='h-14 mt-14 text-center text-xl pt-3.5 rounded-3xl bg-[#527e80]'>
   Enable
   </div>
   </div>
@@ -118,9 +128,40 @@ if(tab == 0){
 {/* <Foot /> */}
 </div>
             )
+}else if(tab == 2){
+  return(
+    <>
+
+<div className='bg-[#111314] Poppins h-screen'>
+<NavBar />
+<div className='grid place-items-center sm:hidden lg:grid mt-52'>
+
+<ReactLoading type={'balls'} color={"#fff"} height={'8%'} width={'8%'} />
+
+</div>
+<div className='grid place-items-center sm:grid lg:hidden mt-32'>
+
+<ReactLoading type={'balls'} color={"#fff"} height={'30%'} width={'30%'} />
+
+</div>
+{/* <Foot /> */}
+</div></>
+  )
+
+}else if(tab == 3){
+  return(
+    <>
+
+<div className='bg-[#111314] Poppins h-screen text-4xl '>
+<NavBar />
+<div className='mt-32 text-center'>
+done
+
+</div>
+{/* <Foot /> */}
+</div></>
+  )
+
 }
-
-
-
 }
 export default Home;
