@@ -18,6 +18,7 @@ To implement this project, you will need the following hardware and accounts:
 - MPU6050 sensor
 - Firebase account 
 - Something to hold the sensor with a wood should be fine
+- 2gb server 
 - 24/7 internet connection
 ## Deployment Steps
 
