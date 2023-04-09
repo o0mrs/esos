@@ -11,7 +11,8 @@ However, if another city is located farther away from the epicenter, it would ta
 
 so what are we going to do with this information?
 we will setup a pi that will detect an earthquake and send a notefecation to ppl in the country to get out of their homes
-
+## technical 
+Well firstly we would need a technology that could deliver a massage in less than a second and could be implemented in a massive scale that's why I decided to use Google cloud messaging 
 ## Required Hardware and Accounts
 
 To implement this project, you will need the following hardware and accounts:
