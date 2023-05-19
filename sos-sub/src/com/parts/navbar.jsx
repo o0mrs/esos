@@ -8,7 +8,7 @@ const NavBar = ()=>{
   let navigate = useNavigate();
     return(
       <>
-      <div className="navbar bg-[#111314]">
+      <div className="navbar text-white bg-[#111314]">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost btn-circle">

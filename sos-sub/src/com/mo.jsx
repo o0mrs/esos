@@ -42,7 +42,7 @@ const [taa,settaa] = useState("");
 if(tab == 0){
     return(
       
-<div className='bg-[#111314] Poppins h-screen'>
+<div className='bg-[#111314 ] Poppins h-screen'>
 <NavBar />
 <div>
   <div>
@@ -72,7 +72,7 @@ if(tab == 0){
 }else if(tab == 1){
      return(
   <>
-  <div className='bg-[#111314] Poppins h-screen'>
+  <div className='bg-[#111314] text-white Poppins h-screen'>
 <NavBar />
 <div className='text-6xl place-items-center mt-32 grid grid-cols-3'>
     <div>
