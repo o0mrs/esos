@@ -28,7 +28,7 @@ export const requestForToken = async () => {
       if (currentToken) {
         // alert(currentToken);
         // console.log(currentToken);
-      await  fetch('http://sosapi.zuisos.info:3000/adduser', {
+      await  fetch('https://sosapi.zuisos.info/adduser', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ export const requestForToken = async () => {
 .then(data =>  {
   console.log(data)
   localStorage.setItem('token', currentToken);
-  window.location.replace("https://esos.pages.dev/done");
+  window.location.replace("https://zuisos.info/done");
 
 })
 .catch(error => console.error(error));
