@@ -88,7 +88,7 @@ if(tab == 0){
 </div>
 <div className='text-center text-6xl mt-32'>
 {d &&(
-    <>THER'S AN EARTQUAKE</>
+    <>THERE'S AN EARTHQUAKE</>
 )}
 {!d &&(
     <>SAFE</>
